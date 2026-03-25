@@ -4,6 +4,8 @@ from .utils import upload_to_s3
 from .utils import generate_histogram
 from .similarity import compare_image_similarity
 
+from io import BytesIO
+
 # Create your views here.
 def home(request):
     query = request.GET.get('q')
