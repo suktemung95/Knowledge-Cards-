@@ -22,14 +22,14 @@ def upload_card(request):
         description = request.POST.get("description")
         image = request.FILES.get("image")
 
-        # Upload to S3
-        image_url = upload_to_s3(image, image.name)
+        # Read file into memory
+        image_bytes = image.read()
 
-        # Reset pointer
-        image.seek(0)
+        # Upload to S3
+        image_url = upload_to_s3(BytesIO(image_bytes), image.name)
 
         # Generate histogram
-        histogram = generate_histogram(image)
+        histogram = generate_histogram(BytesIO(image_bytes))
 
         # Save to DB
         KnowledgeCard.objects.create(
