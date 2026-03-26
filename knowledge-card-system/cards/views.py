@@ -5,9 +5,9 @@ from .utils import generate_histogram
 from .similarity import compare_image_similarity
 import boto3
 from urllib.parse import urlparse
-
-
 from io import BytesIO
+
+s3 = boto3.client("s3")
 
 # Create your views here.
 def delete_card(request, card_id):
