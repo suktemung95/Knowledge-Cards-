@@ -18,9 +18,11 @@ def delete_card(request, card_id):
         parsed_url = urlparse(card.image_url)
         file_key = parsed_url.path.lstrip("/")  # removes leading "/"
 
+        print("KEY:", file_key)
+
         # Delete from S3
         s3.delete_object(
-            Bucket="your-bucket-name",
+            Bucket="knowledge-cards-bucket",
             Key=file_key
         )
 
