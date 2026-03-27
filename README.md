@@ -1,3 +1,14 @@
+# How to run?
+
+- make sure to git clone or git pull to get all the latest files
+- start by opening the project in the EC2 command line
+- change directory to the knowledge-card-system folder
+- pip install (or py -m pip install) boto3 numpy Pillow Django
+- run: python or py or python 3 (whichever you have)
+- python manage.py makemigrations
+- python manage.py migrate
+- python manage.py runserver 0.0.0.0:8000
+
 # Contributions
 
 - histogram similarity function ideas were taken from code examples, but were not directly copied

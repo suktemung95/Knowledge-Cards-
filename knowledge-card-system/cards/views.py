@@ -14,9 +14,10 @@ def delete_card(request, card_id):
     card = get_object_or_404(KnowledgeCard, id=card_id)
 
     if request.method == "POST":
+        
         # Extract file key from URL
         parsed_url = urlparse(card.image_url)
-        file_key = parsed_url.path.lstrip("/")  # removes leading "/"
+        file_key = parsed_url.path.lstrip("/")  
 
         print("KEY:", file_key)
 
